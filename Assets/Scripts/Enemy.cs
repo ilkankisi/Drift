@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         LookAtConstraint lookAtConstraint = GetComponent<LookAtConstraint>();
+        Debug.Log("test");
     }
     private void FixedUpdate()
     {
