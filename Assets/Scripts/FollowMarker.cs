@@ -5,14 +5,16 @@ using UnityEngine;
 public class FollowMarker : MonoBehaviour
 {
     public GameObject marker;
-    public GameObject ballGo;
     public Rigidbody rb;
     public float massValue;
     public float pullPowerValue;
+    private void Awake()
+    {
+        rb.mass=massValue;
+    }
 
     void FixedUpdate()
     {
-        rb.mass=massValue;
         FollowTouch();
     }
     public void FollowTouch()

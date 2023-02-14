@@ -4,9 +4,24 @@ using UnityEngine;
 
 public class TurnAround : MonoBehaviour
 {
-    public int rotateSpeed=500;
-    private void Update()
+    public int rotateSpeed=835;
+    public bool enableTurn = false;
+    private void FixedUpdate()
     {
-        transform.Rotate(new Vector3(0, rotateSpeed, 0) * Time.deltaTime);
+        TurnBall();
+    }
+    public void TurnBall()
+    {
+        if (enableTurn)
+        {
+            transform.Rotate(new Vector3(0, rotateSpeed, 0) * Time.deltaTime);
+            StartCoroutine(Wait());
+        }
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3.0f);
+        enableTurn = false;
     }
 }

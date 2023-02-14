@@ -58,10 +58,13 @@
     <Analyzer Include="C:\Program Files\unity\2022.2.0b16\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PlatformController.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\DetectParachute.cs" />
     <Compile Include="Assets\Scripts\Marker.cs" />
     <Compile Include="Assets\Scripts\FollowMarker.cs" />
     <Compile Include="Assets\Scripts\TurnAround.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
