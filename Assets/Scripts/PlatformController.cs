@@ -29,7 +29,7 @@ public class PlatformController : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             area.transform.GetChild(i).GetComponent<Rigidbody>().isKinematic = false;
         }
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(5.0f); 
         for (int i = 75; i < 85; i++)
         {
             yield return new WaitForSeconds(0.2f);
