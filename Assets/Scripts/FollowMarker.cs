@@ -15,9 +15,9 @@ public class FollowMarker : MonoBehaviour
 
     void FixedUpdate()
     {
-        FollowTouch();
+        FollowFinger();
     }
-    public void FollowTouch()
+    public void FollowFinger()
     {
         if (Mathf.Abs(Vector3.Distance(marker.transform.position, transform.position)) > 5 && Input.GetMouseButton(0))
         {

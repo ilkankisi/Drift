@@ -677,7 +677,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107232993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7642174, y: 16.100945, z: -2.0704212}
+  m_LocalPosition: {x: 0, y: 16.100945, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1106,6 +1106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 176864322}
+  platformDistanceLevel: 0
 --- !u!1001 &191877152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1394,6 +1395,7 @@ GameObject:
   - component: {fileID: 223898741}
   - component: {fileID: 223898740}
   - component: {fileID: 223898739}
+  - component: {fileID: 223898744}
   m_Layer: 0
   m_Name: ball
   m_TagString: Untagged
@@ -1534,6 +1536,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223898737}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &223898744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223898737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda63c30c1adc454c85211fd1178fa1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitTime: 3
+  car: {fileID: 0}
 --- !u!1 &230018524 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e7fd65efe26a3b94a8e50f2a30db27c1, type: 3}
@@ -2287,9 +2303,12 @@ MonoBehaviour:
   car2: {fileID: 252270617}
   car3: {fileID: 2106321372}
   car4: {fileID: 785674501}
+  isCar1Active: 1
+  isCar2Active: 1
+  isCar3Active: 1
+  isCar4Active: 1
   parashute: {fileID: 378562069}
   pullPowerValue: 20
-  distanceList: 
 --- !u!65 &336491384
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2386,7 +2405,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &339503497 stripped
 GameObject:
@@ -2593,6 +2612,7 @@ GameObject:
   - component: {fileID: 353099296}
   - component: {fileID: 353099295}
   - component: {fileID: 353099299}
+  - component: {fileID: 353099300}
   m_Layer: 0
   m_Name: ball
   m_TagString: Untagged
@@ -2733,6 +2753,20 @@ PositionConstraint:
   m_Sources:
   - sourceTransform: {fileID: 78647091}
     weight: 1
+--- !u!114 &353099300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353099292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda63c30c1adc454c85211fd1178fa1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitTime: 3
+  car: {fileID: 0}
 --- !u!1001 &362004317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2846,11 +2880,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d968dd1fae83b8c48be9d2305a678753, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.501072
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d968dd1fae83b8c48be9d2305a678753, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00000023673276
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d968dd1fae83b8c48be9d2305a678753, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2901,6 +2935,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d968dd1fae83b8c48be9d2305a678753, type: 3}
       insertIndex: -1
       addedObject: {fileID: 378562077}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d968dd1fae83b8c48be9d2305a678753, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 378562080}
   m_SourcePrefab: {fileID: 100100000, guid: d968dd1fae83b8c48be9d2305a678753, type: 3}
 --- !u!1 &378562069 stripped
 GameObject:
@@ -2927,12 +2964,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.992101, y: 0.9248272, z: 0.30000004}
-  m_Center: {x: -0.0052351477, y: -0.0056803706, z: 0.15000002}
+  m_Size: {x: 0.31100896, y: 0.3182293, z: 0.30000004}
+  m_Center: {x: 0.0018595814, y: -0.0003591955, z: 0.15000002}
 --- !u!54 &378562074
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2972,6 +3009,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371d5204f6bb90242aa65add3af730e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &378562080
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378562069}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.4659368
+  m_Center: {x: 0, y: -0.010158635, z: 0.14397837}
 --- !u!1 &378664909 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -971580900421083881, guid: 1a90757474af1b94592a100b2575c0a0, type: 3}
@@ -7335,7 +7393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999518404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8399997, y: 12.018927, z: -0.119999886}
+  m_LocalPosition: {x: 0, y: 12.018927, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12156,7 +12214,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &1756572012
 MonoBehaviour:
@@ -12174,9 +12232,12 @@ MonoBehaviour:
   car2: {fileID: 1368378034}
   car3: {fileID: 252270617}
   car4: {fileID: 2106321372}
+  isCar1Active: 1
+  isCar2Active: 1
+  isCar3Active: 1
+  isCar4Active: 1
   parashute: {fileID: 378562069}
   pullPowerValue: 20
-  distanceList: 
 --- !u!65 &1756572013
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12488,7 +12549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772783937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.559998, y: 10.0199995, z: 8.76}
+  m_LocalPosition: {x: 48.539997, y: 10.0199995, z: 10.679999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12630,6 +12691,7 @@ GameObject:
   - component: {fileID: 1777335037}
   - component: {fileID: 1777335036}
   - component: {fileID: 1777335035}
+  - component: {fileID: 1777335040}
   m_Layer: 0
   m_Name: ball
   m_TagString: Untagged
@@ -12770,6 +12832,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777335033}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1777335040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777335033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda63c30c1adc454c85211fd1178fa1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitTime: 3
+  car: {fileID: 0}
 --- !u!1001 &1781059662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13219,7 +13295,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &1850060423
 MonoBehaviour:
@@ -13237,9 +13313,12 @@ MonoBehaviour:
   car2: {fileID: 2106321372}
   car3: {fileID: 785674501}
   car4: {fileID: 1368660554}
+  isCar1Active: 1
+  isCar2Active: 1
+  isCar3Active: 1
+  isCar4Active: 1
   parashute: {fileID: 378562069}
   pullPowerValue: 20
-  distanceList: 
 --- !u!65 &1850060424
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13437,6 +13516,8 @@ GameObject:
   - component: {fileID: 1860459853}
   - component: {fileID: 1860459856}
   - component: {fileID: 1860459857}
+  - component: {fileID: 1860459858}
+  - component: {fileID: 1860459859}
   m_Layer: 0
   m_Name: ball
   m_TagString: Untagged
@@ -13577,6 +13658,34 @@ PositionConstraint:
   m_Sources:
   - sourceTransform: {fileID: 1739492247}
     weight: 1
+--- !u!114 &1860459858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860459849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda63c30c1adc454c85211fd1178fa1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitTime: 3
+  car: {fileID: 0}
+--- !u!114 &1860459859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860459849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda63c30c1adc454c85211fd1178fa1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitTime: 3
+  car: {fileID: 0}
 --- !u!1 &1924399450
 GameObject:
   m_ObjectHideFlags: 0
@@ -13591,6 +13700,7 @@ GameObject:
   - component: {fileID: 1924399453}
   - component: {fileID: 1924399452}
   - component: {fileID: 1924399456}
+  - component: {fileID: 1924399457}
   m_Layer: 0
   m_Name: ball
   m_TagString: Untagged
@@ -13731,6 +13841,20 @@ PositionConstraint:
   m_Sources:
   - sourceTransform: {fileID: 24880399}
     weight: 1
+--- !u!114 &1924399457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924399450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda63c30c1adc454c85211fd1178fa1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitTime: 3
+  car: {fileID: 0}
 --- !u!1 &1924567387 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e7fd65efe26a3b94a8e50f2a30db27c1, type: 3}
@@ -14864,7 +14988,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &2123499265
 MonoBehaviour:
@@ -14882,9 +15006,12 @@ MonoBehaviour:
   car2: {fileID: 252270617}
   car3: {fileID: 785674501}
   car4: {fileID: 1368660554}
+  isCar1Active: 1
+  isCar2Active: 1
+  isCar3Active: 1
+  isCar4Active: 1
   parashute: {fileID: 378562069}
   pullPowerValue: 20
-  distanceList: 
 --- !u!65 &2123499266
 BoxCollider:
   m_ObjectHideFlags: 0

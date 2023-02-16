@@ -4,42 +4,38 @@ using UnityEngine;
 
 public class DetectParachute : MonoBehaviour
 {
+    public static DetectParachute Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.name.Contains("CarDetect"))
         {
-            switch (other.gameObject.transform.parent.GetSiblingIndex())
-            {
-                case 0:
-                    other.gameObject.transform.GetChild(1).GetComponent<TurnAround>().enableTurn = true;
-                    Debug.Log("you");
-                    break;
-                case 1:
-                    Debug.Log("first");
-                    break;
-                case 2:
-                    Debug.Log("second");
-                    break;
-                case 3:
-                    Debug.Log("third");
-                    break;
-                default:
-                    Debug.Log("fourth");
-                    break;
-            }
+            other.gameObject.transform.GetChild(1).GetComponent<TurnAround>().enableTurn = true;
             gameObject.SetActive(false);
         }
 
     }
-    private void FixedUpdate()
+    public void setRandomPosForParashute()
     {
-        DropParachute();
+        gameObject.SetActive(true);
+        float x = Random.Range(-25.0f, 25.0f);
+        float z = Random.Range(-25.0f, 25.0f);
+        gameObject.transform.position= new Vector3(x,25, z);
     }
-    public void DropParachute()
+    public void setParashute()
     {
-        if (gameObject.transform.position.y < 10)
-        {
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        }
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        setRandomPosForParashute();
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 }

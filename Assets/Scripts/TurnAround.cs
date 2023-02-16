@@ -18,7 +18,6 @@ public class TurnAround : MonoBehaviour
             StartCoroutine(Wait());
         }
     }
-
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(3.0f);
