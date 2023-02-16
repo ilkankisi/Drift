@@ -60,29 +60,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlatformController.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\ButtonManager.cs" />
     <Compile Include="Assets\Scripts\MarkerController.cs" />
     <Compile Include="Assets\Scripts\DetectParachute.cs" />
     <Compile Include="Assets\Scripts\FollowMarker.cs" />
     <Compile Include="Assets\Scripts\HitWithBall.cs" />
     <Compile Include="Assets\Scripts\TurnAround.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Obi\Resources\ObiMaterials\ParticleShader.shader" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\URP\ObiLightingURP.cginc" />
-    <None Include="Assets\Obi\Plugins\x86_64\libOni.dll" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\ObiLightingBuiltIn.cginc" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\DistanceFieldSlice.shader" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\ObiParticles.cginc" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\StandardVertexColors.shader" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\SimpleParticleShader.shader" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\ObiEllipsoids.cginc" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\URP\ParticleShaderURP.shader" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\URP\SimpleParticleShaderURP.shader" />
-    <None Include="Assets\Obi\Plugins\x86\libOni.dll" />
-    <None Include="Assets\Obi\Plugins\libOni.bundle\Contents\Resources\CMakeLists.txt" />
-    <None Include="Assets\Obi\CHANGELOG_rope.txt" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\LitParticles.shader" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\ObiUtils.cginc" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -792,14 +776,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Obi.Editor.csproj">
-      <Project>{F302311A-335A-4978-4064-91BAC4FA6B3A}</Project>
-      <Name>Obi.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Obi.csproj">
-      <Project>{F8B0FC24-18D2-FE8F-B260-44C4A05C226C}</Project>
-      <Name>Obi</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

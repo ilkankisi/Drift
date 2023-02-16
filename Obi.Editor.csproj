@@ -65,8 +65,8 @@
     <Compile Include="Assets\Obi\Editor\Common\ObiSettingsProvider.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\Properties\ObiBlueprintColor.cs" />
     <Compile Include="Assets\Obi\Editor\RopeAndRod\ObiPathHandles.cs" />
-    <Compile Include="Assets\Obi\Editor\Common\Collisions\ObiColliderEditor.cs" />
     <Compile Include="Assets\Obi\Editor\RopeAndRod\Blueprints\ObiRopeBaseBlueprintEditor.cs" />
+    <Compile Include="Assets\Obi\Editor\Common\Collisions\ObiColliderEditor.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\RenderModes\ObiBlueprintRenderModeTetherConstraints.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\Brushes\ObiBrushBase.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\RenderModes\ObiBlueprintRenderModeAerodynamicConstraints.cs" />
@@ -88,9 +88,9 @@
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\Properties\ObiBlueprintRadius.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\Brushes\BrushModes\ObiFloatPaintBrushMode.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Utils\ObiRaycastHit.cs" />
+    <Compile Include="Assets\Obi\Editor\Common\Utils\ObiParticleAttachmentEditor.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Constraints\ObiConstraintParametersDrawer.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\Properties\ObiBlueprintLayer.cs" />
-    <Compile Include="Assets\Obi\Editor\Common\Utils\ObiParticleAttachmentEditor.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\Brushes\BrushModes\ObiBrushMode.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\RenderModes\ObiBlueprintRenderModeParticles.cs" />
     <Compile Include="Assets\Obi\Editor\ObiStitcherEditor.cs" />
@@ -113,8 +113,8 @@
     <Compile Include="Assets\Obi\Editor\RopeAndRod\ObiRopeEditor.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\RenderModes\ObiBlueprintRenderModeBendConstraints.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\BlueprintEditorTools\ObiParticleSelectionEditorTool.cs" />
-    <Compile Include="Assets\Obi\Editor\Common\Blueprints\BlueprintEditorTools\ObiTethersTool.cs" />
     <Compile Include="Assets\Obi\Editor\Common\ObiEditorSettings.cs" />
+    <Compile Include="Assets\Obi\Editor\Common\Blueprints\BlueprintEditorTools\ObiTethersTool.cs" />
     <Compile Include="Assets\Obi\Editor\RopeAndRod\ObiPathEditor.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\Brushes\BrushModes\ObiMasterSlavePaintBrushMode.cs" />
     <Compile Include="Assets\Obi\Editor\Common\Blueprints\BlueprintEditorTools\ObiPropertyTextureEditorTool.cs" />
