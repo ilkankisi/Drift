@@ -7,6 +7,7 @@ using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class Enemy : MonoBehaviour
 {
