@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using TMPro;
-using UnityEditor.Build.Content;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.UI;
-using UnityEditor;
 
 public class Enemy : MonoBehaviour
 {
